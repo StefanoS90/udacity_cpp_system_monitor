@@ -5,9 +5,6 @@
 int main() {
   System system;
   NCursesDisplay::Display(system);
-//   while(1){
-//     
-//     std::cout << system.MemoryUtilization() << std::endl ;
-//     
-//   }
+//   std::cout << system.UpTime() << std::endl ;
+    
 }
