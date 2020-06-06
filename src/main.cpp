@@ -5,6 +5,6 @@
 int main() {
   System system;
   NCursesDisplay::Display(system);
-//   std::cout << system.UpTime() << std::endl ;
+//   std::cout << system.Cpu().Utilization() << std::endl ;
     
 }
