@@ -39,7 +39,7 @@ vector<Process>& System::Processes() {
       }
   }
   
-  for (int i=0;i<this->processes_.size()-1;i++ ){
+  for (size_t i=0;i<this->processes_.size()-1;i++ ){
     auto process = this->processes_[i];
     auto it = std::find_if(pid_list.begin(), pid_list.end(), [&process](int& pid) {return process.Pid() == pid;});
     if (it == pid_list.end()){

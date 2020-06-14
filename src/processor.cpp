@@ -16,8 +16,8 @@ float Processor::Utilization(){
   float irq = std::stof(utilization_info[5]);
   float softirq = std::stof(utilization_info[6]);
   float steal = std::stof(utilization_info[7]);
-  float guest = std::stof(utilization_info[8]);
-  float guest_nice = std::stof(utilization_info[9]);
+  //float guest = std::stof(utilization_info[8]);
+  //float guest_nice = std::stof(utilization_info[9]);
   
   float cpu_non_idle = user + nice + system + irq + softirq + steal;
   float cpu_idle  = idle + iowait;

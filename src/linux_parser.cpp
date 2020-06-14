@@ -151,7 +151,6 @@ long LinuxParser::ActiveJiffies(int pid) {
   stime = std::stoi(proc_stat[14]);
   cutime = std::stoi(proc_stat[15]);
   cstime = std::stoi(proc_stat[16]);
-  float sys_freq = sysconf(_SC_CLK_TCK);
   return (utime+stime+cutime+cstime);
 }
 
@@ -162,7 +161,7 @@ long LinuxParser::IdleJiffies() { return 0; }
 vector<string> LinuxParser::CpuUtilization() { 
   string line;
   string word;
-  std:vector<std::string> out_string;
+  vector<std::string> out_string;
   
   std::ifstream filestream(kProcDirectory + kStatFilename);
   if (filestream.is_open()) {
