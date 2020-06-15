@@ -237,8 +237,10 @@ string LinuxParser::Ram(int pid) {
       std::replace(line.begin(), line.end(), ':', ' ');
       std::istringstream linestream(line);
       while (linestream >> key >> value ) {
-        if (key == "VmSize") {
-          process_ram = std::to_string(std::stoi(value)/1000);
+	// using vmData instead of VVmSize becuase i want to account for physical memory 
+        if (key == "VmData") {
+          process_ram = value;
+	  process_ram = process_ram.substr(0, process_ram.size()-4);
         }
       }
     }
@@ -308,9 +310,9 @@ long LinuxParser::UpTime(int pid) {
       }
   }
   
-  int utime = std::stoi(proc_stat[21]);
+  int start_time = std::stoi(proc_stat[21]);
   float sys_freq = sysconf(_SC_CLK_TCK);
-  return utime/sys_freq;
+  return UpTime() - start_time/sys_freq;
 }
   
   
